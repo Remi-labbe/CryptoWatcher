@@ -1,0 +1,51 @@
+:root {
+    --light-bg-primary: #36363E;
+    --light-bg-secondary: #4D4D55;
+    --light-bg-red: #BD3C3C;
+    --light-fg: #EBEBEB;
+    --dark-bg-primary: #16161D;
+    --dark-bg-secondary: #23232F;
+    --dark-fg: #F5F5F5;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: var(--light-bg-secondary);
+    color: var(--light-fg);
+}
+
+select {
+    font-size: 1rem;
+    padding: .5em;
+    border: 0;
+    background: var(--light-bg-primary);
+    color: var(--light-fg);
+    border-radius: 5px;
+}
+
+.card-container {
+    margin: 1rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+}
+
+.card {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--dark-bg-primary);
+    font-size: 3rem;
+    color: var(--light-fg);
+    height: 100%;
+    width: 100%;
+    border-radius: 4px;
+    transition: all 500ms;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
