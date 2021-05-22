@@ -1,40 +1,14 @@
-import { useState,useEffect } from 'react'
-import { Container, Form } from 'react-bootstrap'
-import axios from 'axios'
+import { Container, Form, Button } from 'react-bootstrap'
 
-export default function Tile({ defaultCoin, index, deleteTile, setCoinInList, refCurrency }) {
-
-    const [coin, setCoin] = useState(defaultCoin)
-    const [price, setPrice] = useState("NA")
-
-    function changeCoin() {
-        setCoinInList(index, coin)
-    }
-
-    // function deleteSelf() {
-    //     deleteTile(index)
-    // }
-
-    useEffect(() => {
-        axios.get('http://localhost:3001/init', {
-            params: {
-                coin,
-                refCurrency
-            }
-        }).then((res) => {
-            setPrice(res.data.price)
-        })
-    }, [coin, refCurrency])
+export default function Tile({ coin, index, deleteTile, changeCoin, price }) {
 
     return (
         <Container className="card">
-            {/* TODO: delete Tile button */}
-            {/* <Button onClick={deleteSelf}>
+            <Button onClick={ () => deleteTile(index) }>
                 X
-            </Button> */}
+            </Button>
             <Form.Control as="select" value={coin} onChange={e => {
-                setCoin(e.target.value)
-                changeCoin()
+                changeCoin(index, e.target.value)
             }}>
                 <option value="bitcoin">BTC - Bitcoin</option>
                 <option value="ethereum">ETH - Ethereum</option>
