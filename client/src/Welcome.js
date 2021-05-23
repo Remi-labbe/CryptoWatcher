@@ -1,6 +1,6 @@
-import { Button, Container, Form } from 'react-bootstrap'
+import { Button, Container, Form } from 'react-bootstrap';
 
-const REDIRECT_URL = 'http://localhost:3000'
+const REDIRECT_URL = 'http://localhost:3000';
 
 export default function Welcome() {
 
@@ -13,6 +13,7 @@ export default function Welcome() {
                         <option value="bitcoin">BTC - Bitcoin</option>
                         <option value="ethereum">ETH - Ethereum</option>
                         <option value="dogecoin">DOGE - Dogecoin</option>
+                        <option value="monero">XMR - Monero</option>
                     </Form.Control>
                 </Form.Group>
                 <Form.Group>
@@ -20,6 +21,7 @@ export default function Welcome() {
                     <Form.Control as="select" name="currency">
                         <option value="usd">$ USD</option>
                         <option value="eur">€ EUR</option>
+                        <option value="btc">₿ BTC</option>
                     </Form.Control>
                 </Form.Group>
                 {/* Left to implement - remember the choices with browser storage */}
@@ -29,5 +31,5 @@ export default function Welcome() {
                 </Button>
             </Form>
         </Container>
-    )
+    );
 }

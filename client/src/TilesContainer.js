@@ -1,65 +1,120 @@
-import { useState, useEffect, useRef } from 'react'
-import Tile from './Tile'
-import CoinGecko from 'coingecko-api'
+import { useState, useEffect, useRef } from 'react';
+import { Button } from 'react-bootstrap';
+import Tile from './Tile';
+import CoinGecko from 'coingecko-api';
+import { ReactComponent as PlusIcon } from './icons/plus-lg.svg';
 
-const coinGeckoClient = new CoinGecko()
+const coinGeckoClient = new CoinGecko();
 
-const UPDATE_INTERVAL = 10
+const DEFAULT_UPDATE_INTERVAL = 10;
 
-export default function TilesContainer({ coins, currency }) {
+export default function TilesContainer({ coins, currency, refreshInterval }) {
 
-    const [tiles, setTiles] = useState(['bitcoin', 'ethereum', 'dogecoin', 'monero'])
-    const [prices, setPrices] = useState([])
+    const [availableCoins, setAvailableCoins] = useState([])
+    const [tiles, setTiles] = useState([coins]);
+    const [coinDatas, setCoinDatas] = useState([]);
 
-    const interval = useRef()
+    const requestAnimationRef = useRef();
+    const timeoutRef = useRef();
+
+    function addTile() {
+        let arr = [...tiles];
+        arr.push('bitcoin');
+        setTiles(arr);
+    }
 
     function setCoinAt(idx, coin) {
-        let arr = [...tiles]
-        arr[idx] = coin
-        setTiles(arr)
+        let arr = [...tiles];
+        arr[idx] = coin;
+        setTiles(arr);
     }
 
     function deleteTileAt(idx) {
-        let arr = [...tiles]
-        arr.splice(idx, 1)
-        setTiles(arr)
+        let arr = [...tiles];
+        arr.splice(idx, 1);
+        setTiles(arr);
     }
 
     useEffect(() => {
-        let getPrices = async () => {
-            return await coinGeckoClient.simple.price({
-                ids: tiles,
+        let getData = async () => {
+            return await coinGeckoClient.coins.markets({
                 vs_currency: currency,
-                include_24hr_change: true
-            })
+                page: 1,
+                per_page: 100
+            });
+        }
+        getData().then(CGList => {
+            let data = CGList.data;
+            console.log(data);
+            let arr = [];
+            for (const field of data) {
+                const shortName = field.symbol;
+                const fullName = field.id;
+                const iconUrl = field.image;
+                arr.push({
+                    fullName,
+                    shortName,
+                    iconUrl
+                });
+            }
+            setAvailableCoins(arr);
+        })
+    }, [currency])
+
+    useEffect(() => {
+        cancelAnimationFrame(requestAnimationRef.current);
+        clearTimeout(timeoutRef.current);
+        let getPrices = async () => {
+            return await coinGeckoClient.coins.markets({
+                ids: tiles,
+                vs_currency: currency
+            });
         }
         let updatePrices = () => {
             getPrices().then((CGPrices) => {
-                let data = CGPrices.data
-                console.log(data)
-                let arr = []
-                for (const key in data) {
-                    arr[key] = data[key][currency]
+                let data = CGPrices.data;
+                console.log(data);
+                let arr = [];
+                for (const field of data) {
+                    const name = field.id;
+                    const coinDatas = {
+                        price: field.current_price,
+                        icon: field.image,
+                        price_change_24h: field.price_change_percentage_24h
+                    };
+                    arr[name] = coinDatas;
                 }
-                setPrices(arr)
-            })
+                setCoinDatas(arr);
+            });
         }
-        clearInterval(interval.current)
-        updatePrices()
-        interval.current = setInterval(updatePrices, UPDATE_INTERVAL * 1000)
-    }, [tiles, currency])
+        let refresh = (timestamp) => {
+            updatePrices();
+            timeoutRef.current = setTimeout(() => {
+                requestAnimationRef.current = requestAnimationFrame(refresh);
+            }, (refreshInterval ?? DEFAULT_UPDATE_INTERVAL) * 1000);
+        }
+        requestAnimationFrame(refresh);
+        // clearInterval(interval.current);
+        // updatePrices();
+        // interval.current = setInterval(updatePrices, UPDATE_INTERVAL * 1000);
+    }, [tiles, currency, refreshInterval]);
 
     return (
-            <div className="card-container">
-                {tiles.map((coin, idx) => (
-                    <Tile key={idx}
-                        coin={coin}
-                        index={idx}
-                        changeCoin={setCoinAt}
-                        deleteTile={deleteTileAt}
-                        price={prices[coin]}
-                    />
-                ))}
-            </div>
-    )
+        <div className="card-container">
+            {tiles.map((coin, idx) => (
+                <Tile key={idx}
+                    availableCoins={availableCoins}
+                    currency={currency}
+                    coin={coin}
+                    index={idx}
+                    changeCoin={setCoinAt}
+                    deleteTile={deleteTileAt}
+                    data={coinDatas[coin]}
+                />
+            ))}
+            <Button id="newTile" onClick={() => addTile()}>
+                <PlusIcon />
+            </Button>
+        </div>
+    );
 }

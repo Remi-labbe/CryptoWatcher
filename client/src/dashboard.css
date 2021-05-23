@@ -1,11 +1,13 @@
 :root {
     --light-bg-primary: #36363E;
     --light-bg-secondary: #4D4D55;
-    --light-bg-red: #BD3C3C;
     --light-fg: #EBEBEB;
     --dark-bg-primary: #16161D;
     --dark-bg-secondary: #23232F;
     --dark-fg: #F5F5F5;
+
+    --red: #FF6C6C;
+    --green: #5D924F;
 }
 
 body {
@@ -38,7 +40,7 @@ select {
     justify-content: center;
     align-items: center;
     background: var(--dark-bg-primary);
-    font-size: 3rem;
+    font-size: 1.5rem;
     color: var(--light-fg);
     height: 100%;
     width: 100%;
@@ -48,4 +50,12 @@ select {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.posChange {
+    color: var(--green);
+}
+
+.negChange {
+    color: var(--red);
 }

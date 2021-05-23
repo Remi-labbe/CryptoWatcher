@@ -15,3 +15,9 @@
 - Cross to delete
 - Price
 - 24h change + trend arrow up or down
+
+### Getting available coins
+- get > coin/list
+- res:
+    - name = Coin name
+    - symbol = Short Name -> to UpperCase

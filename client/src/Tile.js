@@ -1,23 +1,43 @@
-import { Container, Form, Button } from 'react-bootstrap'
+import { Container, Button } from 'react-bootstrap';
+import { ReactComponent as ExitCross } from './icons/x-lg.svg'
+import Dropdown from './Dropdown';
 
-export default function Tile({ coin, index, deleteTile, changeCoin, price }) {
+export default function Tile({ availableCoins, currency, coin, index, deleteTile, changeCoin, data = {
+    price: "---",
+    icon: "",
+    price_change_24h: "---"
+} }) {
+
+    function formatPrice(price) {
+        if (currency === 'usd') return `$${price}`;
+        if (currency === 'eur') return `${price}€`;
+        return `${price}₿`
+    }
+
+    function formatPriceChange(changePercentage) {
+        if (changePercentage === '---') return changePercentage;
+        return `${Number(changePercentage).toFixed(2)}%`;
+    }
 
     return (
         <Container className="card">
-            <Button onClick={ () => deleteTile(index) }>
-                X
+            <Button onClick={() => deleteTile(index)}>
+                <ExitCross />
             </Button>
-            <Form.Control as="select" value={coin} onChange={e => {
-                changeCoin(index, e.target.value)
-            }}>
-                <option value="bitcoin">BTC - Bitcoin</option>
-                <option value="ethereum">ETH - Ethereum</option>
-                <option value="dogecoin">DOGE - Dogecoin</option>
-                <option value="monero">XMR - Monero</option>
-            </Form.Control>
-            <div className="price">
-                {price}
-            </div>
+            <Dropdown coin={coin}
+                icon={data.icon}
+                changeCoin={changeCoin}
+                index={index}
+                items={availableCoins}
+            />
+            <span className="price">
+                {formatPrice(data.price)}
+            </span>
+            <span className={data.price_change_24h >= 0
+                ? 'posChange'
+                : 'negChange'}>
+                {formatPriceChange(data.price_change_24h)}
+            </span>
         </Container>
-    )
+    );
 }
