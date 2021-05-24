@@ -45,7 +45,6 @@ export default function TilesContainer({ coins, currency, refreshInterval }) {
         }
         getData().then(CGList => {
             let data = CGList.data;
-            console.log(data);
             let arr = [];
             for (const field of data) {
                 const shortName = field.symbol;
@@ -73,7 +72,6 @@ export default function TilesContainer({ coins, currency, refreshInterval }) {
         let updatePrices = () => {
             getPrices().then((CGPrices) => {
                 let data = CGPrices.data;
-                console.log(data);
                 let arr = [];
                 for (const field of data) {
                     const name = field.id;
