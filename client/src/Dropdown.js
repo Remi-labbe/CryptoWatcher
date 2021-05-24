@@ -1,4 +1,4 @@
-import './dropdown.css';
+import './css/dropdown.css';
 
 import { useState, useEffect } from 'react';
 import { Container, Form } from 'react-bootstrap';
@@ -62,9 +62,9 @@ export default function Dropdown({ coin = "NA", icon, changeCoin, index, items =
 
             <div className="dropdown-button"
                 onClick={_ => setOpen(!open)}>
-                <img src={icon} alt={`${coin} icon`} style={{
-                    width: "2rem",
-                    height: "2rem"
+                <img src={icon} alt={`[${coin} icon]`} style={{
+                    width: "1.5rem",
+                    height: "1.5rem"
                 }} />
                 {coin.replace(/^\w/, c => c.toUpperCase())}
             </div>

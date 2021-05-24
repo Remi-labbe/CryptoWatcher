@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Container, Form } from 'react-bootstrap';
 import TilesContainer from './TilesContainer';
-import './dashboard.css';
+import './css/dashboard.css';
 
 export default function Dashboard({ coins, remember, defaultCurrency }) {
 

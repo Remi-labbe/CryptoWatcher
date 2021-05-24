@@ -1,0 +1,8 @@
+@font-face {
+    font-family: best choice;
+    src: url(fonts/BestChoiceDemo-Regular.otf);
+}
+
+* {
+    font-family: best choice, monospace, sans-serif;
+}

@@ -21,9 +21,9 @@ export default function Tile({ availableCoins, currency, coin, index, deleteTile
 
     return (
         <Container className="card">
-            <Button onClick={() => deleteTile(index)}>
+            <div className="exit-button" onClick={() => deleteTile(index)}>
                 <ExitCross />
-            </Button>
+            </div>
             <Dropdown coin={coin}
                 icon={data.icon}
                 changeCoin={changeCoin}

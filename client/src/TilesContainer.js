@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import { Button } from 'react-bootstrap';
 import Tile from './Tile';
 import CoinGecko from 'coingecko-api';
 import { ReactComponent as PlusIcon } from './icons/plus-lg.svg';
@@ -110,9 +109,9 @@ export default function TilesContainer({ coins, currency, refreshInterval }) {
                     data={coinDatas[coin]}
                 />
             ))}
-            <Button id="newTile" onClick={() => addTile()}>
+            <div className="card new-tile-button" onClick={() => addTile()}>
                 <PlusIcon />
-            </Button>
+            </div>
         </div>
     );
 }
