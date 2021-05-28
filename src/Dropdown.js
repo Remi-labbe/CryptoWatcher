@@ -27,13 +27,11 @@ function DropdownMenu({ tileIndex, changeCoin, items }) {
     }
 
     return (
-        //  dropdown
         <div className="dropdown">
             <Form className="dropdown-search">
                 <Form.Control type="search" value={search} onChange={e => setSearch(e.target.value)}
                     placeholder="Search ..." />
             </Form>
-            {/* menu */}
             <Container className="dropdown-items-container">
                 <Container className="dropdown-content">
                     {dropItems.map(item => (
