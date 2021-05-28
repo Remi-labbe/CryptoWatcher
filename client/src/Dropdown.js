@@ -6,20 +6,16 @@ import { Container, Form } from 'react-bootstrap';
 function DropdownMenu({ tileIndex, changeCoin, items }) {
 
     const [dropItems, setDropItems] = useState(items);
-    // const [search, setSearch] = useState("")
+    const [search, setSearch] = useState("");
 
-    // useEffect(() => {
-    //     let results = items.filter(item => {
-    //         if (item.shortName.indexOf(search) !== -1) return true;
-    //         if (item.fullName.indexOf(search) !== -1) return true;
-    //         return false;
-    //     })
-    //     setDropItems(results);
-    // }, [search, items]);
-
-    // useEffect(() => {
-    //     setSearch('')
-    // }, [open])
+    useEffect(() => {
+        let results = items.filter(item => {
+            if (item.shortName.indexOf(search) !== -1) return true;
+            if (item.fullName.indexOf(search) !== -1) return true;
+            return false;
+        })
+        setDropItems(results);
+    }, [search, items]);
 
     function DropdownItem({ tileIndex, children, coin, changeCoin }) {
         return (
@@ -33,17 +29,19 @@ function DropdownMenu({ tileIndex, changeCoin, items }) {
     return (
         //  dropdown
         <div className="dropdown">
-            {/* <Form className="dropdown-search">
+            <Form className="dropdown-search">
                 <Form.Control type="search" value={search} onChange={e => setSearch(e.target.value)}
                     placeholder="Search ..." />
-            </Form> */}
+            </Form>
             {/* menu */}
-            <Container className="dropdown-content">
-                {dropItems.map(item => (
-                    <DropdownItem tileIndex={tileIndex} key={item.fullName} coin={item.fullName} changeCoin={changeCoin}>
-                        {`${item.shortName.toUpperCase()} - ${item.fullName.replace(/^\w/, c => c.toUpperCase())}`}
-                    </DropdownItem>
-                ))}
+            <Container className="dropdown-items-container">
+                <Container className="dropdown-content">
+                    {dropItems.map(item => (
+                        <DropdownItem tileIndex={tileIndex} key={item.fullName} coin={item.fullName} changeCoin={changeCoin}>
+                            {`${item.shortName.toUpperCase()} ${item.fullName.replace(/^\w/, c => c.toUpperCase())}`}
+                        </DropdownItem>
+                    ))}
+                </Container>
             </Container>
         </div>
     );

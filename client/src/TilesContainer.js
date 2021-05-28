@@ -97,7 +97,7 @@ export default function TilesContainer({ coins, currency, refreshInterval }) {
     }, [tiles, currency, refreshInterval]);
 
     return (
-        <div className="card-container">
+        <div className="tile-container">
             {tiles.map((coin, idx) => (
                 <Tile key={idx}
                     availableCoins={availableCoins}
@@ -109,7 +109,7 @@ export default function TilesContainer({ coins, currency, refreshInterval }) {
                     data={coinDatas[coin]}
                 />
             ))}
-            <div className="card new-tile-button" onClick={() => addTile()}>
+            <div className="tile new-tile-button" onClick={() => addTile()}>
                 <PlusIcon />
             </div>
         </div>

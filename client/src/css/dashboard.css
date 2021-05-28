@@ -17,30 +17,24 @@ body {
     color: var(--light-fg);
 }
 
-select {
-    font-size: 1rem;
-    padding: .5em;
-    border: 0;
-    background: var(--light-bg-primary);
-    color: var(--light-fg);
-    border-radius: 5px;
+.tile-container {
+    padding: 1rem;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(335px, 1fr));
+    grid-auto-rows: 6rem;
 }
 
-.card-container {
-    margin: 1rem;
+.tile {
     display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
-}
-
-.card {
-    display: grid;
-    grid-template: "";
-    padding: 5px;
-    display: flex;
+    grid-template-areas: 
+        "a a a b"
+        "c c d d";
+    padding: .5rem;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     background: var(--dark-bg-primary);
     font-size: 1.5rem;
     color: var(--light-fg);
@@ -48,30 +42,16 @@ select {
     width: 100%;
     border-radius: 4px;
     transition: all 500ms;
-    /* overflow: hidden; */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
-.new-tile-button { 
-    background: var(--dark-bg-secondary);
-    cursor: pointer;
-}
-
-.new-tile-button:hover {
-    background: var(--light-bg-primary);
-}
-
-.posChange {
-    color: var(--green);
-}
-
-.negChange {
-    color: var(--red);
+.dropdown-container {
+    text-align: center;
+    grid-area: a;
 }
 
 .exit-button {
+    margin-left: auto;
+    grid-area: b;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,4 +65,39 @@ select {
 .exit-button > svg {
     height: .75rem;
     width: .75rem;
+}
+
+.price {
+    text-align: center;
+    grid-area: c;
+}
+
+.price-change {
+    text-align: center;
+    grid-area: d;
+}
+
+.new-tile-button { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--dark-bg-secondary);
+    cursor: pointer;
+}
+
+.new-tile-button:hover {
+    background: var(--light-bg-primary);
+}
+
+/* .new-tile-button > svg {
+    width: 30%;
+    height: 30%;
+} */
+
+.pos-change {
+    color: var(--green);
+}
+
+.neg-change {
+    color: var(--red);
 }

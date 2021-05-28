@@ -1,4 +1,3 @@
-import "./css/base.css"
 import Dashboard from './Dashboard';
 import Welcome from './Welcome';
 

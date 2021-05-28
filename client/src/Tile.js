@@ -1,5 +1,5 @@
-import { Container, Button } from 'react-bootstrap';
-import { ReactComponent as ExitCross } from './icons/x-lg.svg'
+import { Container } from 'react-bootstrap';
+import { ReactComponent as ExitCross } from './icons/x-lg.svg';
 import Dropdown from './Dropdown';
 
 export default function Tile({ availableCoins, currency, coin, index, deleteTile, changeCoin, data = {
@@ -20,7 +20,7 @@ export default function Tile({ availableCoins, currency, coin, index, deleteTile
     }
 
     return (
-        <Container className="card">
+        <Container className="tile">
             <div className="exit-button" onClick={() => deleteTile(index)}>
                 <ExitCross />
             </div>
@@ -33,9 +33,9 @@ export default function Tile({ availableCoins, currency, coin, index, deleteTile
             <span className="price">
                 {formatPrice(data.price)}
             </span>
-            <span className={data.price_change_24h >= 0
-                ? 'posChange'
-                : 'negChange'}>
+            <span className={`price-change ${data.price_change_24h >= 0
+                ? 'pos-change'
+                : 'neg-change'}`}>
                 {formatPriceChange(data.price_change_24h)}
             </span>
         </Container>

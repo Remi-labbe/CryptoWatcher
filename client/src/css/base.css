@@ -1,8 +1,29 @@
 @font-face {
-    font-family: best choice;
-    src: url(fonts/BestChoiceDemo-Regular.otf);
+    font-family: comfortaa;
+    src: url(fonts/Comfortaa-Regular.ttf);
 }
 
 * {
-    font-family: best choice, monospace, sans-serif;
+    font-family: comfortaa, monospace, sans-serif;
 }
+
+#root {
+    padding: 1rem;
+    margin: 0;
+    background: var(--light-bg-secondary);
+    color: var(--light-fg);
+}
+
+select {
+    font-size: 1rem;
+    padding: .5em;
+    border: 0;
+    background: var(--light-bg-primary);
+    color: var(--light-fg);
+    border-radius: 5px;
+}
+
+
+/* html {
+    padding: 1rem;
+} */
