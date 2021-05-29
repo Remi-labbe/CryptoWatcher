@@ -9,7 +9,9 @@ export default function Welcome() {
             <Form action={REDIRECT_URL}>
                 <Form.Group>
                     <Form.Label>Choose your first Coin</Form.Label>
-                    <Form.Control as="select" name="choices">
+                    <Form.Control as="select" name="choice">
+                        {/* default coin user can follow
+                        Hardcoded as we propose the most know ones. */}
                         <option value="bitcoin">BTC - Bitcoin</option>
                         <option value="ethereum">ETH - Ethereum</option>
                         <option value="dogecoin">DOGE - Dogecoin</option>
@@ -24,8 +26,6 @@ export default function Welcome() {
                         <option value="btc">₿ BTC</option>
                     </Form.Control>
                 </Form.Group>
-                {/* Left to implement - remember the choices with browser storage */}
-                <Form.Check name="remember" type="checkbox" label="Remember my choices" />
                 <Button type="submit">
                     Submit
                 </Button>

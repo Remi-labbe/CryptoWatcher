@@ -7,10 +7,10 @@ const coinGeckoClient = new CoinGecko();
 
 const DEFAULT_UPDATE_INTERVAL = 10;
 
-export default function TilesContainer({ coins, currency, refreshInterval }) {
+export default function TilesContainer({ coins, currency, refreshInterval, setCookie }) {
 
     const [availableCoins, setAvailableCoins] = useState([])
-    const [tiles, setTiles] = useState([coins]);
+    const [tiles, setTiles] = useState(coins);
     const [coinDatas, setCoinDatas] = useState([]);
 
     const requestAnimationRef = useRef();
@@ -33,6 +33,11 @@ export default function TilesContainer({ coins, currency, refreshInterval }) {
         arr.splice(idx, 1);
         setTiles(arr);
     }
+
+
+    useEffect(() => {
+        setCookie('coins', tiles.join());
+    }, [tiles, setCookie]);
 
     useEffect(() => {
         let getData = async () => {
@@ -91,9 +96,6 @@ export default function TilesContainer({ coins, currency, refreshInterval }) {
             }, (refreshInterval ?? DEFAULT_UPDATE_INTERVAL) * 1000);
         }
         requestAnimationFrame(refresh);
-        // clearInterval(interval.current);
-        // updatePrices();
-        // interval.current = setInterval(updatePrices, UPDATE_INTERVAL * 1000);
     }, [tiles, currency, refreshInterval]);
 
     return (

@@ -1,12 +1,36 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Container, Form } from 'react-bootstrap';
 import TilesContainer from './TilesContainer';
 import './css/dashboard.css';
+import {ReactComponent as TrashIcon } from './icons/trash.svg';
 
-export default function Dashboard({ coins, remember, defaultCurrency }) {
+// Set this variable to the number of day you want to remember the user choice.
+const COOKIE_EXP_DAYS = 30;
+const COOKIE_EXP_TIME = COOKIE_EXP_DAYS * 24 * 60 * 60;
+
+export default function Dashboard({ coins, defaultCurrency }) {
 
     const [currency, setCurrency] = useState(defaultCurrency);
     const [refreshInterval, setRefreshInterval] = useState(10);
+
+    function setCookie(name, value) {
+        const expires = `expires=${COOKIE_EXP_TIME}`;
+        document.cookie = `${name}=${value};${expires};path=/`;
+    }
+
+    function deleteCookie(name) {
+        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`
+    }
+
+    function reset() {
+        deleteCookie('coins');
+        deleteCookie('currency');
+        window.location.reload();
+    }
+
+    useEffect(() => {
+        setCookie('currency', currency);
+    }, [currency])
 
     return (
         <Container>
@@ -22,10 +46,14 @@ export default function Dashboard({ coins, remember, defaultCurrency }) {
                     <option value="30">30 seconds</option>
                 </Form.Control>
             </Form>
+            <div onClick={_ => reset()}>
+                <TrashIcon />
+            </div>
             <TilesContainer
                 coins={coins}
                 currency={currency}
                 refreshInterval={refreshInterval}
+                setCookie={setCookie}
             />
         </Container>
     );
