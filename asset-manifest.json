@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/CryptoWatcher/static/css/main.15d9390d.chunk.css",
-    "main.js": "/CryptoWatcher/static/js/main.d61d1ad2.chunk.js",
-    "main.js.map": "/CryptoWatcher/static/js/main.d61d1ad2.chunk.js.map",
+    "main.css": "/CryptoWatcher/static/css/main.e9688daa.chunk.css",
+    "main.js": "/CryptoWatcher/static/js/main.3a05a91c.chunk.js",
+    "main.js.map": "/CryptoWatcher/static/js/main.3a05a91c.chunk.js.map",
     "runtime-main.js": "/CryptoWatcher/static/js/runtime-main.c56186b2.js",
     "runtime-main.js.map": "/CryptoWatcher/static/js/runtime-main.c56186b2.js.map",
-    "static/js/2.b154ab50.chunk.js": "/CryptoWatcher/static/js/2.b154ab50.chunk.js",
-    "static/js/2.b154ab50.chunk.js.map": "/CryptoWatcher/static/js/2.b154ab50.chunk.js.map",
+    "static/js/2.bb36ac4c.chunk.js": "/CryptoWatcher/static/js/2.bb36ac4c.chunk.js",
+    "static/js/2.bb36ac4c.chunk.js.map": "/CryptoWatcher/static/js/2.bb36ac4c.chunk.js.map",
     "index.html": "/CryptoWatcher/index.html",
-    "static/css/main.15d9390d.chunk.css.map": "/CryptoWatcher/static/css/main.15d9390d.chunk.css.map",
-    "static/js/2.b154ab50.chunk.js.LICENSE.txt": "/CryptoWatcher/static/js/2.b154ab50.chunk.js.LICENSE.txt",
+    "static/css/main.e9688daa.chunk.css.map": "/CryptoWatcher/static/css/main.e9688daa.chunk.css.map",
+    "static/js/2.bb36ac4c.chunk.js.LICENSE.txt": "/CryptoWatcher/static/js/2.bb36ac4c.chunk.js.LICENSE.txt",
     "static/media/base.css": "/CryptoWatcher/static/media/Comfortaa-Regular.886fcced.ttf",
     "static/media/plus-lg.fee1cace.svg": "/CryptoWatcher/static/media/plus-lg.fee1cace.svg",
     "static/media/trash.43abd16f.svg": "/CryptoWatcher/static/media/trash.43abd16f.svg",
@@ -17,8 +17,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.c56186b2.js",
-    "static/js/2.b154ab50.chunk.js",
-    "static/css/main.15d9390d.chunk.css",
-    "static/js/main.d61d1ad2.chunk.js"
+    "static/js/2.bb36ac4c.chunk.js",
+    "static/css/main.e9688daa.chunk.css",
+    "static/js/main.3a05a91c.chunk.js"
   ]
 }
