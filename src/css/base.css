@@ -21,9 +21,5 @@ select {
     background: var(--light-bg-primary);
     color: var(--light-fg);
     border-radius: 5px;
+    margin-right: .5rem;
 }
-
-
-/* html {
-    padding: 1rem;
-} */

@@ -46,8 +46,8 @@ export default function Dashboard({ coins, defaultCurrency }) {
                     <option value="30">30 seconds</option>
                 </Form.Control>
             </Form>
-            <div onClick={_ => reset()}>
-                <TrashIcon />
+            <div className='reset-button' onClick={_ => reset()}>
+                <TrashIcon style={{marginRight: "3px"}}/>Reset
             </div>
             <TilesContainer
                 coins={coins}
