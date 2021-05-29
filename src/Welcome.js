@@ -1,14 +1,15 @@
 import { Button, Container, Form } from 'react-bootstrap';
+import './css/welcome.css'
 
 const REDIRECT_URL = 'http://localhost:3000';
 
 export default function Welcome() {
 
     return (
-        <Container>
-            <Form action={REDIRECT_URL}>
+        <Container className="welcome-form-container">
+            <Form className='welcome-form' action={REDIRECT_URL}>
                 <Form.Group>
-                    <Form.Label>Choose your first Coin</Form.Label>
+                    <Form.Label>Choose your first Coin: </Form.Label>
                     <Form.Control as="select" name="choice">
                         {/* default coin user can follow
                         Hardcoded as we propose the most know ones. */}
@@ -19,16 +20,14 @@ export default function Welcome() {
                     </Form.Control>
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Choose your reference currency</Form.Label>
+                    <Form.Label>Choose your reference currency: </Form.Label>
                     <Form.Control as="select" name="currency">
                         <option value="usd">$ USD</option>
                         <option value="eur">€ EUR</option>
                         <option value="btc">₿ BTC</option>
                     </Form.Control>
                 </Form.Group>
-                <Button type="submit">
-                    Submit
-                </Button>
+                <Button className="submit-button" as="input" type="submit" value="submit" />
             </Form>
         </Container>
     );

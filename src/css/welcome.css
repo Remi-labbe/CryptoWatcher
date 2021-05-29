@@ -1,0 +1,28 @@
+.welcome-form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.welcome-form {
+    background: var(--dark-bg-primary);
+    border-radius: 3px;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.welcome-form > * {
+    margin: .5rem;
+}
+
+.submit-button {
+    float: right;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    padding: .5rem;
+    color: var(--light-fg);
+    background: var(--light-bg-primary);
+}
