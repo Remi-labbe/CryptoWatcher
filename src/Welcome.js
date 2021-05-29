@@ -1,13 +1,11 @@
 import { Button, Container, Form } from 'react-bootstrap';
 import './css/welcome.css'
 
-const REDIRECT_URL = 'http://localhost:3000';
-
 export default function Welcome() {
 
     return (
         <Container className="welcome-form-container">
-            <Form className='welcome-form' action={REDIRECT_URL}>
+            <Form className='welcome-form' action="">
                 <Form.Group>
                     <Form.Label>Choose your first Coin: </Form.Label>
                     <Form.Control as="select" name="choice">

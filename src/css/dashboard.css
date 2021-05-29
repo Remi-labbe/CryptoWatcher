@@ -18,6 +18,7 @@ body {
 }
 
 .reset-button {
+    cursor: pointer;
     background: #FF6C6C;
     border-radius: 3px;
     display: flex;
