@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/cryptowatcher/static/css/main.93290c57.chunk.css",
-    "main.js": "/cryptowatcher/static/js/main.5dc13f95.chunk.js",
-    "main.js.map": "/cryptowatcher/static/js/main.5dc13f95.chunk.js.map",
-    "runtime-main.js": "/cryptowatcher/static/js/runtime-main.1be39a05.js",
-    "runtime-main.js.map": "/cryptowatcher/static/js/runtime-main.1be39a05.js.map",
-    "static/js/2.b154ab50.chunk.js": "/cryptowatcher/static/js/2.b154ab50.chunk.js",
-    "static/js/2.b154ab50.chunk.js.map": "/cryptowatcher/static/js/2.b154ab50.chunk.js.map",
-    "index.html": "/cryptowatcher/index.html",
-    "static/css/main.93290c57.chunk.css.map": "/cryptowatcher/static/css/main.93290c57.chunk.css.map",
-    "static/js/2.b154ab50.chunk.js.LICENSE.txt": "/cryptowatcher/static/js/2.b154ab50.chunk.js.LICENSE.txt",
-    "static/media/base.css": "/cryptowatcher/static/media/Comfortaa-Regular.886fcced.ttf",
-    "static/media/plus-lg.fee1cace.svg": "/cryptowatcher/static/media/plus-lg.fee1cace.svg",
-    "static/media/trash.43abd16f.svg": "/cryptowatcher/static/media/trash.43abd16f.svg",
-    "static/media/x-lg.3ad82eb6.svg": "/cryptowatcher/static/media/x-lg.3ad82eb6.svg"
+    "main.css": "/CryptoWatcher/static/css/main.c054deda.chunk.css",
+    "main.js": "/CryptoWatcher/static/js/main.5dc13f95.chunk.js",
+    "main.js.map": "/CryptoWatcher/static/js/main.5dc13f95.chunk.js.map",
+    "runtime-main.js": "/CryptoWatcher/static/js/runtime-main.c56186b2.js",
+    "runtime-main.js.map": "/CryptoWatcher/static/js/runtime-main.c56186b2.js.map",
+    "static/js/2.b154ab50.chunk.js": "/CryptoWatcher/static/js/2.b154ab50.chunk.js",
+    "static/js/2.b154ab50.chunk.js.map": "/CryptoWatcher/static/js/2.b154ab50.chunk.js.map",
+    "index.html": "/CryptoWatcher/index.html",
+    "static/css/main.c054deda.chunk.css.map": "/CryptoWatcher/static/css/main.c054deda.chunk.css.map",
+    "static/js/2.b154ab50.chunk.js.LICENSE.txt": "/CryptoWatcher/static/js/2.b154ab50.chunk.js.LICENSE.txt",
+    "static/media/base.css": "/CryptoWatcher/static/media/Comfortaa-Regular.886fcced.ttf",
+    "static/media/plus-lg.fee1cace.svg": "/CryptoWatcher/static/media/plus-lg.fee1cace.svg",
+    "static/media/trash.43abd16f.svg": "/CryptoWatcher/static/media/trash.43abd16f.svg",
+    "static/media/x-lg.3ad82eb6.svg": "/CryptoWatcher/static/media/x-lg.3ad82eb6.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.1be39a05.js",
+    "static/js/runtime-main.c56186b2.js",
     "static/js/2.b154ab50.chunk.js",
-    "static/css/main.93290c57.chunk.css",
+    "static/css/main.c054deda.chunk.css",
     "static/js/main.5dc13f95.chunk.js"
   ]
 }
