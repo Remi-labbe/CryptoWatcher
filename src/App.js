@@ -1,9 +1,4 @@
 import Dashboard from './Dashboard';
-import Welcome from './Welcome';
-
-const coinUrlString = new URLSearchParams(window.location.search).get('choice');
-const currencyUrlString = new URLSearchParams(window.location.search).get('currency');
-window.history.pushState({}, "", '/');
 
 function App() {
 
@@ -19,13 +14,12 @@ function App() {
     return null;
   }
 
-  const coins = coinUrlString ? [coinUrlString] : null ?? getCookie('coins')?.split(',');
-  const currency = currencyUrlString ?? getCookie('currency') ?? 'usd';
+  const coins = getCookie('coins')?.split(',') ?? ['bitcoin'];
+  const currency = getCookie('currency') ?? 'usd';
 
-  return coins ? <Dashboard coins={coins} 
-                            getCookie={getCookie}
-                            defaultCurrency={currency}/> 
-                        : <Welcome />;
+  return <Dashboard coins={coins} 
+                    getCookie={getCookie}
+                    defaultCurrency={currency}/> 
 }
 
 export default App;
